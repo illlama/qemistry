@@ -1,0 +1,25 @@
+@import 'scss/base.scss';
+
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 18px 0 18px;
+  div {
+    display: flex;
+    p {
+      margin: 0;
+      color: $main-color;
+      padding-left: 15px;
+    }
+  }
+}
+.logo {
+  height: 53px;
+}
+.name {
+  font-size: 25px;
+}

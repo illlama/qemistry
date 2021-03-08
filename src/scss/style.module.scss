@@ -1,0 +1,124 @@
+@import 'scss/base.scss';
+
+section {
+  height: 84vh;
+  .container {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+  &.firstSection {
+    height: 84vh;
+    .title {
+      margin-top: 20%;
+    }
+    input {
+      border-radius: 0.5rem;
+      font-weight: bold;
+      border: 0;
+      color: $main-color;
+      background-color: $main-bgColor;
+      font-size: 18px;
+      padding: 16px;
+      margin-bottom: 9px;
+      font-family: 'Montserrat', sans-serif;
+      &:nth-of-type(2) {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      &:nth-of-type(3) {
+        float: right;
+        padding: 16px 50px;
+        margin: 0;
+      }
+    }
+    .submitBtn {
+      background-color: #9f9c9c;
+      color: #ffffff;
+    }
+  }
+  &.secondSection {
+    background-color: $main-bgColor;
+  }
+  &.thirdSection {
+    background-color: #ffffff;
+  }
+  &.fourthSection {
+    background-color: #fff9e7;
+  }
+  &.fifthSection {
+    background-color: #ffffff;
+  }
+}
+.landingVideo {
+  margin-top: 20%;
+  // 영상 비율에 따라 오른 공백이 생기거나 아래 삐져나오게 됨  padding-right: 100px;
+  width: auto;
+  max-width: 75%;
+  overflow: hidden;
+  video {
+    max-width: 100%;
+  }
+}
+
+.title {
+  p {
+    font-size: 30px;
+    font-weight: medium;
+    margin: 0;
+    b {
+      font-size: 29px;
+      font-weight: $extra-bold;
+    }
+  }
+  .description {
+    margin: 60px 0px;
+    font-size: 14px;
+  }
+}
+
+.firstOfTitle {
+  min-width: 35%;
+  margin-right: 30px;
+}
+
+//Section2
+
+.secondSection {
+  .container {
+    padding-top: 16vh;
+    p {
+      margin-left: 50px;
+    }
+    .description {
+      margin-left: 80px;
+      text-shadow: 0px 4px 4px #c6c6c6;
+    }
+  }
+}
+
+.thirdSection {
+  .container {
+    padding-top: 16vh;
+
+    .description {
+      text-shadow: 0px 4px 4px #c6c6c6;
+      line-height: 2;
+    }
+
+    .companies {
+      margin-top: 120px;
+      width: 50%;
+      text-align: center;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        img {
+          margin: 0px 10px;
+        }
+      }
+    }
+  }
+}
