@@ -4,3 +4,5 @@ node_modules
 npm-debug.log*
 yarb-debug.log*
 yarn-error.log*
+
+src/constants/fetch.js

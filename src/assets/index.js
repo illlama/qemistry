@@ -12,6 +12,9 @@ import Twitter from 'assets/Twitter.png';
 import upbit from 'assets/upbit.png';
 import Youtube from 'assets/Youtube.png';
 import plus from 'assets/plus.png';
+import pullDown from 'assets/pullDown.png';
+import calendar from 'assets/calendar.png';
+import info from 'assets/Info.png';
 
 const images = {
   landingVideo,
@@ -28,6 +31,9 @@ const images = {
   upbit,
   Youtube,
   plus,
+  pullDown,
+  calendar,
+  info,
 };
 
 export default images;

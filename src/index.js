@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import 'scss/main.scss';
+import 'react-day-picker/lib/style.css';
 
 ReactDOM.render(
   <React.StrictMode>

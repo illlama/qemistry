@@ -1,42 +1,19 @@
 @import 'scss/base.scss';
-
+//Common
 section {
   height: 84vh;
+  @include mobile {
+    min-width: 100%;
+  }
   .container {
     display: flex;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
-  }
-  &.firstSection {
-    height: 84vh;
-    .title {
-      margin-top: 20%;
-    }
-    input {
-      border-radius: 0.5rem;
-      font-weight: bold;
-      border: 0;
-      color: $main-color;
-      background-color: $main-bgColor;
-      font-size: 18px;
-      padding: 16px;
-      margin-bottom: 9px;
-      font-family: 'Montserrat', sans-serif;
-      &:nth-of-type(2) {
-        width: 100%;
-        box-sizing: border-box;
-      }
-      &:nth-of-type(3) {
-        float: right;
-        padding: 16px 50px;
-        margin: 0;
-      }
-    }
-    .submitBtn {
-      background-color: #9f9c9c;
-      color: #ffffff;
+    @include desktop {
+      width: 90%;
     }
   }
+
   &.secondSection {
     background-color: $main-bgColor;
   }
@@ -50,75 +27,496 @@ section {
     background-color: #ffffff;
   }
 }
-.landingVideo {
-  margin-top: 20%;
-  // 영상 비율에 따라 오른 공백이 생기거나 아래 삐져나오게 됨  padding-right: 100px;
-  width: auto;
-  max-width: 75%;
-  overflow: hidden;
-  video {
-    max-width: 100%;
-  }
-}
-
 .title {
   p {
     font-size: 30px;
     font-weight: medium;
     margin: 0;
+    @include mobile {
+      font-size: 24px;
+    }
     b {
       font-size: 29px;
       font-weight: $extra-bold;
+      @include mobile {
+        font-size: 23px;
+      }
     }
   }
   .description {
     margin: 60px 0px;
     font-size: 14px;
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+}
+
+//Section1
+.firstSection {
+  .title {
+    margin-top: 10%;
+    @include tablet {
+      margin-top: 15%;
+    }
+    @include mobile {
+      margin-top: 22%;
+    }
+  }
+  input {
+    border-radius: 0.5rem;
+    font-weight: bold;
+    border: 0;
+    color: $main-color;
+    background-color: $main-bgColor;
+    font-size: 18px;
+    padding: 16px;
+    margin-bottom: 9px;
+    font-family: 'Montserrat', sans-serif;
+    &:nth-of-type(2) {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    &:nth-of-type(3) {
+      float: right;
+      padding: 16px 50px;
+      margin: 0;
+    }
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+  .submitBtn {
+    background-color: #9f9c9c;
+    color: #ffffff;
+    cursor: pointer;
+    &:hover {
+      background-color: #949393;
+    }
+  }
+}
+.landingVideo {
+  margin-top: 16vh;
+  // 영상 비율에 따라 오른 공백이 생기거나 아래 삐져나오게 됨  padding-right: 100px;
+  width: auto;
+  max-width: 75%;
+  margin: 16vh auto 0px auto;
+  overflow: hidden;
+  video {
+    max-width: 100%;
+  }
+  &.landingVideoMobile {
+    margin: 0 auto 30px auto;
+    max-width: 85%;
+    @include tablet {
+      display: none;
+    }
+    @include desktop {
+      display: none;
+    }
+  }
+  &.landingVideoDesktop {
+    @include tablet {
+      margin-top: 15%;
+    }
+    @include mobile {
+      display: none;
+    }
   }
 }
 
 .firstOfTitle {
   min-width: 35%;
   margin-right: 30px;
+  @include mobile {
+    min-width: 50%;
+  }
+  .description {
+    margin: 20px 0 20px 0;
+    @include desktop {
+      margin-top: 40px;
+    }
+  }
 }
 
 //Section2
 
 .secondSection {
+  @include mobile {
+    margin-top: 0;
+    height: 70vh;
+  }
   .container {
     padding-top: 16vh;
+    @include mobile {
+      padding-top: 0;
+    }
+    img {
+      width: 45%;
+      @include tablet {
+        width: 50%;
+        height: 50%;
+        margin-top: 30px;
+      }
+      @include mobile {
+        display: none;
+      }
+      &.chartMonitor {
+        display: none;
+        @include mobile {
+          width: 80%;
+          display: block;
+          margin: 55px auto;
+        }
+      }
+    }
     p {
       margin-left: 50px;
+      @include mobile {
+        margin-left: 0;
+      }
     }
     .description {
       margin-left: 80px;
       text-shadow: 0px 4px 4px #c6c6c6;
+      @include tablet {
+        margin-left: 60px;
+      }
+      @include mobile {
+        margin: 30px 20px;
+      }
+    }
+    @include mobile {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .title {
+    margin-top: 50px;
+    @include tablet {
+      margin-top: 0px;
     }
   }
 }
 
-.thirdSection {
-  .container {
-    padding-top: 16vh;
+//Section3
 
-    .description {
-      text-shadow: 0px 4px 4px #c6c6c6;
-      line-height: 2;
+.thirdSection {
+  margin: 0 auto;
+  .container {
+    padding-top: 18vh;
+    display: flex;
+    justify-content: center;
+    @include mobile {
+      padding-top: 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
+    .title {
+      @include mobile {
+        width: 100%;
+        text-align: center;
+      }
+      .description {
+        text-shadow: 0px 4px 4px #c6c6c6;
+        line-height: 2;
+        @include mobile {
+          width: 100%;
+          margin: 5% 0 10% 0;
+        }
+      }
+    }
     .companies {
       margin-top: 120px;
+      margin: 120px 0 0 0;
       width: 50%;
       text-align: center;
-      div {
+      &.companiesMobile {
+        margin-top: 0;
+        @include tablet {
+          display: none;
+        }
+        @include desktop {
+          display: none;
+        }
+      }
+      &.companiesNotMobile {
+        @include mobile {
+          display: none;
+        }
+      }
+      .flatten {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 70px;
+        @include mobile {
+          justify-content: space-evenly;
+        }
+        .company {
+          @include tablet {
+            width: 40%;
+          }
+        }
         img {
           margin: 0px 10px;
         }
+        p {
+          @include tablet {
+            font-size: 12px;
+          }
+        }
       }
+    }
+  }
+}
+
+//Section4
+
+.fourthSection {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 115vh;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .graph {
+    padding-top: 10vh;
+    margin-right: 50px;
+    height: 100%;
+    @include mobile {
+      padding: 0;
+      margin: 10% auto;
+    }
+  }
+  .title {
+    padding-top: 12vh;
+    @include mobile {
+      padding-top: 0;
+    }
+    p {
+      @include tablet {
+        font-size: 18px;
+      }
+      @include mobile {
+        font-size: 16px;
+      }
+    }
+    .data {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 40px;
+      label {
+        color: #949292;
+        font-weight: $bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+        line-height: 2.8;
+      }
+      .datePickBtn {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: $bold;
+        background-color: #f2f2f2;
+        color: #949292;
+        padding: 8px 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+          background-color: #e9e9e9;
+        }
+        img {
+          margin-left: 3rem;
+          @include tablet {
+            margin-left: 1rem;
+          }
+          @include mobile {
+            margin-left: 1rem;
+          }
+        }
+        @include tablet {
+          font-size: 12px;
+        }
+        @include mobile {
+          font-size: 15px;
+        }
+      }
+      .dayPicker {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        background-color: #f3ecd7;
+      }
+    }
+    .inputMoneyContainer {
+      display: flex;
+
+      .inputMoney {
+        display: inline-block;
+        background-color: transparent;
+        font-size: 29px;
+        font-weight: $extra-bold;
+        border: 0;
+        outline: none;
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: underline;
+        color: $main-black;
+        @include tablet {
+          font-size: 18px;
+        }
+        @include mobile {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .dropDown {
+    .itemList {
+      margin-left: 8px;
+      padding: 0;
+    }
+    .item {
+      list-style-type: none;
+      font-size: 30px;
+      @include tablet {
+        font-size: 18px;
+      }
+      @include mobile {
+        font-size: 16px;
+      }
+    }
+    .onDropdown {
+      background-color: #9f9c9c;
+      display: none;
+    }
+    .pullDown {
+      height: 16px;
+    }
+  }
+  .toDateContainer {
+    margin-left: 35px;
+  }
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    &:hover {
+      background-color: #f3ecd7;
+    }
+  }
+
+  .dataRes {
+    width: full;
+    display: flex;
+    margin-top: 50px;
+    div {
+      .resTitle {
+        font-size: 18px;
+        font-weight: $bold;
+        margin-bottom: 20px;
+        text-shadow: 0px 3px 4px #cacaca;
+      }
+      .resBox {
+        display: flex;
+        flex-direction: column;
+        float: left;
+        margin-right: 40px;
+        div {
+          display: flex;
+          align-items: flex-start;
+          :first-child {
+            font-size: 14px;
+            margin-bottom: 20px;
+            @include mobile {
+              margin-bottom: 10px;
+            }
+          }
+          img {
+            margin-left: 2px;
+          }
+        }
+        :last-child {
+          font-size: 18px;
+          font-weight: $bold;
+          text-shadow: 0px 3px 4px #cacaca;
+          text-align: right;
+        }
+      }
+    }
+    .resHr {
+      margin: 0px 40px;
+      height: full;
+      width: 10px;
+      border-left: 1px solid #e5e5e5;
+    }
+  }
+
+  .pricing {
+    color: white;
+    font-size: 18px;
+    font-weight: $bold;
+    border: 0;
+    border-radius: 3px;
+    outline: none;
+    margin: 30px 25%;
+    padding: 13px 80px;
+    background-color: $main-black;
+    &:hover {
+      background-color: #525252;
+    }
+    @include mobile {
+      margin: 30px 10%;
+    }
+  }
+}
+
+.exchangeSetting {
+  display: flex;
+  align-items: center;
+}
+
+//Section5
+.fifthSection {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  .fifthContainer {
+    padding-top: 16vh;
+    .fifthTitle {
+      margin: 0px auto;
+      p {
+        text-align: right;
+        font-size: 30px;
+        margin: 0;
+      }
+      :last-child {
+        font-size: 29px;
+        font-weight: $extra-bold;
+      }
+    }
+    .detailsBtn {
+      color: white;
+      margin: 40vh auto 0 auto;
+      font-size: 18px;
+      font-weight: $bold;
+      border: 0;
+      border-radius: 3px;
+      outline: none;
+      padding: 13px 75px;
+      background-color: $main-black;
     }
   }
 }

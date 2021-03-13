@@ -19,7 +19,15 @@
 }
 .logo {
   height: 53px;
+  &.shrink {
+    height: 40px;
+    transition: height 1s;
+  }
 }
 .name {
   font-size: 25px;
+  &.shrink {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
 }
