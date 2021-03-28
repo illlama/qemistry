@@ -13,7 +13,7 @@ const App = () => {
     <div>
       <Nav />
       {/* Section1 */}
-      <section className={styles.firstSection}>
+      <section className={styles.firstSection} id="waitList">
         <div className={styles.container}>
           <div className={cx(styles.title, styles.firstOfTitle)}>
             <p>
@@ -54,7 +54,7 @@ const App = () => {
       </section>
 
       {/* Section2 */}
-      <section className={styles.secondSection}>
+      <section className={styles.secondSection} id="service">
         <div className={styles.container}>
           <img src={images.chartMonitor} alt="chart-monitor" />
           <div className={styles.title}>
@@ -81,7 +81,7 @@ const App = () => {
       </section>
 
       {/* Section3 */}
-      <section className={styles.thirdSection}>
+      <section className={styles.thirdSection} id="support">
         <div className={styles.container}>
           <div className={styles.title}>
             <p>

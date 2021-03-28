@@ -82,7 +82,7 @@ const ChartSection = () => {
     setToGraphDate(dateFormat(toDate));
   }, [fromDate, toDate]);
   return (
-    <section className={styles.fourthSection}>
+    <section className={styles.fourthSection} id="strategy">
       <div className={styles.container}>
         <Graph
           fromGraphDate={fromGraphDate}

@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import styles from 'scss/components/Nav.module.scss';
 import Logo from 'assets/Logo.png';
-import Telegram from 'assets/Telegram.png';
-import Medium from 'assets/Medium.png';
-import Twitter from 'assets/Twitter.png';
-import Youtube from 'assets/Youtube.png';
+import SimpleLogo from 'assets/simpleLogo.png';
 import cx from 'classnames';
 
 const Nav = () => {
@@ -23,22 +20,43 @@ const Nav = () => {
     }
   };
   return (
-    <div className={styles.navBar}>
+    <div className="fixed inset-x-0 top-0 flex justify-between h-15 px-10 pt-3">
       <div>
-        <img
-          src={Logo}
-          className={cx(styles.logo, { [styles.shrink]: !isTop })}
-          alt="logo"
-        />
-        <p className={cx(styles.name, { [styles.shrink]: !isTop })}>Qemistry</p>
+        {isTop ? (
+          <img src={Logo} className="h-12 ml-6 mt-1" alt="logo" />
+        ) : (
+          <img
+            src={SimpleLogo}
+            className={cx('ml-5 h-12 ', {
+              [styles.simpleLogo]: !isTop,
+            })}
+            alt="logo"
+          />
+        )}
       </div>
       <div>
-        <a href="https://www.medium.com">
-          <img src={Telegram} alt="spcial-telegram" />
-          <img src={Medium} alt="spcial-medium" />
-          <img src={Twitter} alt="spcial-twitter" />
-          <img src={Youtube} alt="spcial-youtube" />
-        </a>
+        <ul className="flex content-center h-15 mr-12 text-placeholderBackgroundTwo text-2xl ">
+          <a href="#waitList">
+            <li className="mx-4 transition ease-in-out hover:text-mainBlue duration-100">
+              Wait List
+            </li>
+          </a>
+          <a href="#service">
+            <li className="mx-4 transition ease-in-out hover:text-mainBlue duration-100">
+              Service
+            </li>
+          </a>
+          <a href="#support">
+            <li className="mx-4 transition ease-in-out hover:text-mainBlue duration-100">
+              Support
+            </li>
+          </a>
+          <a href="#strategy">
+            <li className="mx-4 transition ease-in-out hover:text-mainBlue duration-100">
+              Strategy
+            </li>
+          </a>
+        </ul>
       </div>
     </div>
   );
