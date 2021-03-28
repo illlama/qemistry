@@ -13,7 +13,7 @@ const App = () => {
     <div>
       <Nav />
       {/* Section1 */}
-      <section className={styles.firstSection} id="waitList">
+      <section id="waitList">
         <div className={cx('flex justify-between', styles.container)}>
           <div className="flex flex-col place-content-stretch mt-36 text-3xl">
             <p>
@@ -38,14 +38,22 @@ const App = () => {
             </video>
 
             <form onSubmit={onSubmit}>
-              <input placeholder="name" type="text" />
+              <input
+                placeholder="name"
+                type="text"
+                className="bg-mainBgColor rounded-lg font-bold border-0 focus:outline-none text-mainBlue text-lg p-4 mb-2 lg:text-xl"
+              />
               <br />
-              <input placeholder="Email" type="email" />
+              <input
+                placeholder="Email"
+                type="email"
+                className="bg-mainBgColor rounded-lg font-bold border-0 focus:outline-none text-mainBlue text-lg p-4 mb-2 lg:text-xl"
+              />
               <br />
               <input
                 type="submit"
-                className={styles.submitBtn}
                 value="Join Waitlist"
+                className="bg-darkBgColor rounded-lg font-bold border-0 hover:opacity-75 text-white text-lg p-4 mb-2 cursor-pointer lg:text-xl"
               />
             </form>
           </div>

@@ -15,6 +15,7 @@ module.exports = {
       mainBlue: '#2958e5',
       mainBgColor: '#f5f7ff',
       mainBlack: '#363636',
+      darkBgColor: '#9f9c9c',
       placeholder: '#f3f3f3',
       placeholderBackgroundTwo: '#c8c8c8',
 

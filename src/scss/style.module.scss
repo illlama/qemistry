@@ -92,35 +92,6 @@ section {
     }
   }
 }
-.landingVideo {
-  margin-top: 16vh;
-  // 영상 비율에 따라 오른 공백이 생기거나 아래 삐져나오게 됨  padding-right: 100px;
-  width: auto;
-  max-width: 75%;
-  margin: 16vh auto 0px auto;
-  overflow: hidden;
-  video {
-    max-width: 100%;
-  }
-  &.landingVideoMobile {
-    margin: 0 auto 30px auto;
-    max-width: 85%;
-    @include tablet {
-      display: none;
-    }
-    @include desktop {
-      display: none;
-    }
-  }
-  &.landingVideoDesktop {
-    @include tablet {
-      margin-top: 15%;
-    }
-    @include mobile {
-      display: none;
-    }
-  }
-}
 
 .firstOfTitle {
   min-width: 35%;
@@ -147,25 +118,6 @@ section {
     padding-top: 16vh;
     @include mobile {
       padding-top: 0;
-    }
-    img {
-      width: 45%;
-      @include tablet {
-        width: 50%;
-        height: 50%;
-        margin-top: 30px;
-      }
-      @include mobile {
-        display: none;
-      }
-      &.chartMonitor {
-        display: none;
-        @include mobile {
-          width: 80%;
-          display: block;
-          margin: 55px auto;
-        }
-      }
     }
     p {
       margin-left: 50px;
