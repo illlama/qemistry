@@ -4,6 +4,7 @@ import Telegram from 'assets/Telegram.png';
 import Medium from 'assets/Medium.png';
 import Twitter from 'assets/Twitter.png';
 import Youtube from 'assets/Youtube.png';
+
 const Footer = () => {
   return (
     <div className={styles.footer}>

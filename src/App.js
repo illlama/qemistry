@@ -14,8 +14,8 @@ const App = () => {
       <Nav />
       {/* Section1 */}
       <section className={styles.firstSection} id="waitList">
-        <div className={styles.container}>
-          <div className={cx(styles.title, styles.firstOfTitle)}>
+        <div className={cx('flex justify-between', styles.container)}>
+          <div className="flex flex-col place-content-stretch mt-36 text-3xl">
             <p>
               Investment Made Easy
               <br />
@@ -23,15 +23,19 @@ const App = () => {
                 Trade WIth The <u>Logics</u>
               </b>
             </p>
-            <p className={styles.description}>
+
+            <p className="text-lg my-auto">
               A to Z Service sith the Quantative Analysis
             </p>
 
-            <div className={cx(styles.landingVideo, styles.landingVideoMobile)}>
-              <video autoPlay loop muted>
-                <source src={images.landingVideo} type="video/mp4" />
-              </video>
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              className="w-3/5 lg:hidden mt-36 flex-none"
+            >
+              <source src={images.landingVideo} type="video/mp4" />
+            </video>
 
             <form onSubmit={onSubmit}>
               <input placeholder="name" type="text" />
@@ -45,11 +49,15 @@ const App = () => {
               />
             </form>
           </div>
-          <div className={cx(styles.landingVideo, styles.landingVideoDesktop)}>
-            <video autoPlay loop muted>
-              <source src={images.landingVideo} type="video/mp4" />
-            </video>
-          </div>
+
+          <video
+            autoPlay
+            loop
+            muted
+            className="w-2/3 hidden lg:inline-block mt-36 "
+          >
+            <source src={images.landingVideo} type="video/mp4" />
+          </video>
         </div>
       </section>
 

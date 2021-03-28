@@ -2,9 +2,6 @@
 //Common
 section {
   height: 84vh;
-  @include mobile {
-    min-width: 100%;
-  }
   .container {
     display: flex;
     width: 80%;
