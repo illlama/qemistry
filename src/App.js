@@ -107,15 +107,17 @@ const App = () => {
 
       {/* Section3 */}
       <section className={styles.thirdSection} id="support">
-        <div className={styles.container}>
-          <div className={styles.title}>
-            <p>
+        <div
+          className={cx('flex justify-evenly md:grid-cols-2', styles.container)}
+        >
+          <div className="md:col-span-1">
+            <p className="text-3xl mb-12">
               Funds on You, Trade Bots for You
               <br />
               <b>Effortless Easy Come</b>
             </p>
 
-            <p className={styles.description}>
+            <p className={styles.shadowDescription}>
               - 5+ Exchanges Supported
               <br />
               <br /> - We don’t have any access to your funds:
@@ -125,85 +127,85 @@ const App = () => {
               <br />- 24/7 Live Bots with the Instant Processing
             </p>
           </div>
-          <div className={cx(styles.companies, styles.companiesNotMobile)}>
-            <div className={styles.flatten}>
+          <div className="mt-24 md:inline-block md:col-span-1">
+            <div className="flex justify-center content-center">
               <img
                 src={images.binace}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
               <img
                 src={images.bithumb}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
               <img
                 src={images.upbit}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
             </div>
-            <div className={styles.flatten}>
+            <div className="flex justify-center content-center">
               <img
                 src={images.bitget}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
               <img
                 src={images.bybit}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
               <img
                 src={images.huobi}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
             </div>
-            <div className={styles.flatten}>
-              <img src={images.plus} alt="plus-mark" />
+            <div className="flex justify-center content-center text-base">
+              <img src={images.plus} alt="plus-mark" className="mr-4" />
               <p>More Supported Exchanges</p>
             </div>
           </div>
-          <div className={cx(styles.companies, styles.companiesMobile)}>
-            <div className={styles.flatten}>
+          <div className="mt-24 md:hidden md:col-span-1">
+            <div className="flex justify-center content-center">
               <img
                 src={images.binace}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
               <img
                 src={images.bithumb}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
             </div>
-            <div className={styles.flatten}>
+            <div className="flex justify-center content-center">
               <img
                 src={images.upbit}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
               <img
                 src={images.bitget}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
             </div>
-            <div className={styles.flatten}>
+            <div className="flex justify-center content-center">
               <img
                 src={images.bybit}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
               <img
                 src={images.huobi}
                 alt="companies"
-                className={styles.company}
+                className="px-3 object-none"
               />
             </div>
-            <div className={styles.flatten}>
-              <img src={images.plus} alt="plus-mark" />
+            <div className="flex justify-center content-center text-base">
+              <img src={images.plus} alt="plus-mark" className="mr-4" />
               <p>More Supported Exchanges</p>
             </div>
           </div>
