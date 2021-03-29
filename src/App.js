@@ -216,14 +216,20 @@ const App = () => {
       <ChartSection />
 
       {/* Section5 */}
-      <section className={styles.fifthSection}>
-        <div className={styles.fifthContainer}>
-          <div className={styles.fifthTitle}>
+      <section className="flex justify-center">
+        <div className={cx('flex flex-col', styles.fifthContainer)}>
+          <div className="text-right text-3xl">
             <p>Optimized Strategies</p>
             <br />
-            <p>for 23+ Pairs</p>
+            <p>
+              <b>
+                <b>for 23+ Pairs</b>
+              </b>
+            </p>
           </div>
-          <button className={styles.detailsBtn}>View Details</button>
+          <button className="text-white mt-56 text-lg font-bold border-0 rounded-sm focus:outline-none mx-8 px-16 py-3 bg-mainBlack hover:opacity-75 cursor-pointer">
+            View Details
+          </button>
         </div>
       </section>
       <Footer />

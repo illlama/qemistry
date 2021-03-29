@@ -89,7 +89,6 @@ section {
 
     .companies {
       margin-top: 120px;
-      margin: 120px 0 0 0;
       width: 50%;
       text-align: center;
       &.companiesMobile {
@@ -347,34 +346,7 @@ section {
 }
 
 //Section5
-.fifthSection {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  .fifthContainer {
-    padding-top: 16vh;
-    .fifthTitle {
-      margin: 0px auto;
-      p {
-        text-align: right;
-        font-size: 30px;
-        margin: 0;
-      }
-      :last-child {
-        font-size: 29px;
-        font-weight: $extra-bold;
-      }
-    }
-    .detailsBtn {
-      color: white;
-      margin: 40vh auto 0 auto;
-      font-size: 18px;
-      font-weight: $bold;
-      border: 0;
-      border-radius: 3px;
-      outline: none;
-      padding: 13px 75px;
-      background-color: $main-black;
-    }
-  }
+
+.fifthContainer {
+  padding-top: 16vh;
 }
