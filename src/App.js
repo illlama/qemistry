@@ -47,13 +47,13 @@ const App = () => {
               <input
                 placeholder="Email"
                 type="email"
-                className="bg-mainBgColor rounded-lg font-bold border-0 focus:outline-none text-mainBlue text-lg p-4 mb-2 lg:text-xl"
+                className="w-full bg-mainBgColor rounded-lg font-bold border-0 focus:outline-none text-mainBlue text-lg p-4 mb-2 lg:text-xl"
               />
               <br />
               <input
                 type="submit"
                 value="Join Waitlist"
-                className="bg-darkBgColor rounded-lg font-bold border-0 hover:opacity-75 text-white text-lg p-4 mb-2 cursor-pointer lg:text-xl"
+                className="float-right bg-darkBgColor rounded-lg font-bold border-0 hover:opacity-75 text-white text-lg p-4 mb-2 cursor-pointer lg:text-xl"
               />
             </form>
           </div>
@@ -71,20 +71,29 @@ const App = () => {
 
       {/* Section2 */}
       <section className={styles.secondSection} id="service">
-        <div className={styles.container}>
-          <img src={images.chartMonitor} alt="chart-monitor" />
-          <div className={styles.title}>
-            <p>
+        <div
+          className={cx(
+            'grid grid-cols-2 flex justify-center',
+            styles.container,
+          )}
+        >
+          <img
+            src={images.chartMonitor}
+            alt="chart-monitor"
+            className="w-1/3 col-span-1 hidden lg:inline-block mr-8"
+          />
+          <div className="col-span-1 ml-8">
+            <p className="text-3xl mb-12">
               Full Integration with Trading View
               <br />
               <b>Intuitive Visualization</b>
             </p>
-            <p className={styles.description}>
-              <img
-                src={images.chartMonitor}
-                alt="chart-monitor"
-                className={styles.chartMonitor}
-              />
+            <img
+              src={images.chartMonitor}
+              alt="chart-monitor"
+              className="lg:hidden"
+            />
+            <p className={styles.shadowDescription}>
               - Live Alerts via Telegram
               <br />
               <br />- 3-Year proven strategies

@@ -20,7 +20,7 @@ const Nav = () => {
     }
   };
   return (
-    <div className="fixed inset-x-0 top-0 flex justify-between h-15 px-10 pt-3">
+    <div className="fixed inset-x-0 top-0 flex justify-between h-15 px-10 pt-3 bg-white">
       <div>
         {isTop ? (
           <img src={Logo} className="h-12 ml-6 mt-1" alt="logo" />
