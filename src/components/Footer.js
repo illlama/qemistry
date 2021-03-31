@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="flex flex-wrap grid grid-cols-3 content-center h-48 w-full bg-mainGray">
       <div className="col-span-1"></div>
-      <p className="col-span-1 text-white text-center font-light text-sm tracking-wider">
+      <p className="col-span-1 mt-2 space-y-0 text-white text-center font-light text-sm tracking-wider">
         &copy; Copyright {new Date().getFullYear()} Qemistry. All rights
         reserved.
       </p>

@@ -1,60 +1,58 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
-import DayPicker from 'react-day-picker';
 import styles from 'scss/style.module.scss';
 import images from 'assets/index';
 import Graph from './Graph';
 import dateFormat from 'utils/dateFormat';
+import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
+import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
+import calendar from 'assets/calendar.png';
 
 const ChartSection = () => {
-  const dropDownRef = useRef();
-  const [fromInfo, setFromInfo] = useState({
+  const today = new Date();
+  const [fromDate, setFromDate] = useState({
     year: 2017,
     month: 1,
-    date: 1,
+    day: 1,
   });
-  const [toInfo, setToInfo] = useState({
-    year: 2021,
-    month: 1,
-    date: 1,
+  const [toDate, setToDate] = useState({
+    year: today.getFullYear(),
+    month: today.getMonth() + 1,
+    day: today.getDate(),
   });
-  const [fromDate, setFromDate] = useState(
-    new Date('January 1, 2017 03:24:00'),
-  );
   const [showFrom, setShowFrom] = useState(false);
-  const [toDate, setToDate] = useState(new Date());
   const [showTo, setShowTo] = useState(false);
   const [btcToggle, setBtcToggle] = useState(true);
-  const [fromGraphDate, setFromGraphDate] = useState('');
-  const [toGraphDate, setToGraphDate] = useState('');
+  const [fromGraphDate, setFromGraphDate] = useState('2017-01-01');
+  const [toGraphDate, setToGraphDate] = useState('2017-01-01');
   const [initialMoney, setInitialMoney] = useState(10000);
   const [showninitialMoney, setShownInitialMoney] = useState('10,000');
-  const onToggle = () => {
-    setBtcToggle((prev) => !prev);
+  const onToggle = (e) => {
+    console.log(e);
+    setBtcToggle(e === 'btc');
   };
-  const showCalendar = (e) => {
-    e.preventDefault();
-    if (e.target.name === 'From') {
-      setShowFrom((prev) => !prev);
-    } else if (e.target.name === 'To') {
-      setShowTo((prev) => !prev);
-    }
+
+  const toCustomInput = ({ ref }) => {
+    return (
+      <button
+        ref={ref}
+        className="flex justify-center items-center text-base font-bold text-darkBgColor bg-placeholder px-4 py-2 rounded-md hover:bg-mainBgColor"
+      >
+        {toDate.year}년 {toDate.month}월 {toDate.day}일
+        <img src={calendar} alt="calendar" className="pl-8" />
+      </button>
+    );
   };
-  const onFromPick = (e) => {
-    if (e === fromDate) {
-      setFromDate(undefined);
-    } else {
-      setFromDate(e);
-      setShowFrom(false);
-    }
-  };
-  const onToPick = (e) => {
-    if (e === fromDate) {
-      setToDate(undefined);
-    } else {
-      setToDate(e);
-      setShowTo(false);
-    }
+  const fromCustomInput = ({ ref }) => {
+    return (
+      <button
+        ref={ref}
+        className="flex justify-center items-center text-base font-bold text-darkBgColor bg-placeholder px-4 py-2 rounded-md hover:bg-mainBgColor"
+      >
+        {fromDate.year}년 {fromDate.month}월 {fromDate.day}일
+        <img src={calendar} alt="calendar" className="pl-8" />
+      </button>
+    );
   };
 
   const onChangeMoney = (e) => {
@@ -68,22 +66,15 @@ const ChartSection = () => {
     setShownInitialMoney(x);
   };
   useEffect(() => {
-    setFromInfo({
-      year: fromDate.getFullYear(),
-      month: fromDate.getMonth() + 1,
-      date: fromDate.getDate(),
-    });
-    setToInfo({
-      year: toDate.getFullYear(),
-      month: toDate.getMonth() + 1,
-      date: toDate.getDate(),
-    });
     setFromGraphDate(dateFormat(fromDate));
     setToGraphDate(dateFormat(toDate));
   }, [fromDate, toDate]);
   return (
-    <section className={styles.fourthSection} id="strategy">
-      <div className={styles.container}>
+    <section
+      className={cx('flex justify-center items-center', styles.fourthSection)}
+      id="strategy"
+    >
+      <div className="flex justify-between flex-col pt-16 sm:flex-row">
         <Graph
           fromGraphDate={fromGraphDate}
           toGraphDate={toGraphDate}
@@ -91,130 +82,117 @@ const ChartSection = () => {
           isBtc={btcToggle}
           isMobile={false}
         />
-        <div className={styles.title}>
-          <div className={styles.exchangeSetting}>
+        <div className="flex flex-col text-3xl ">
+          <div className="flex items-center">
             <p>If you have traded </p>
-            <div className={styles.dropDown}>
-              <ul className={styles.itemList}>
-                <li
-                  className={cx(styles.item, {
-                    [styles.onDropdown]: !btcToggle,
-                  })}
-                >
-                  <u>BTCUSDT</u>
-                </li>
-                <li
-                  className={cx(styles.item, {
-                    [styles.onDropdown]: btcToggle,
-                  })}
-                >
-                  <u>ETHUSD</u>
-                </li>
-              </ul>
+            <div className="ml-2">
+              <select
+                className="underline"
+                onChange={(e) => onToggle(e.target.value)}
+              >
+                <option defaultValue value="btc">
+                  BTCUSDT
+                </option>
+                <option value="eth">ETHUSD</option>
+              </select>
             </div>
-            <button ref={dropDownRef} onClick={onToggle}>
-              <img src={images.pullDown} alt="DropDownIcon" />
-            </button>
           </div>
-          <b>
-            <b>
-              <div className={styles.inputMoneyContainer}>
-                <p>$</p>
-                <input
-                  type="text"
-                  value={showninitialMoney}
-                  className={styles.inputMoney}
-                  onChange={onChangeMoney}
-                  maxLength="15"
-                  pattern="[0-9]+"
-                  size={initialMoney.toString().length + 1}
+
+          <div className="flex font-bold">
+            <div className="flex underline">
+              <p>$</p>
+              <input
+                type="text"
+                value={showninitialMoney}
+                className="inline-block bg-transparent font-bold border-0 focus:outline-none"
+                onChange={onChangeMoney}
+                maxLength="15"
+                pattern="[0-9]+"
+                size={initialMoney.toString().length + 1}
+              />
+            </div>
+            <p> With Qemistry,</p>
+          </div>
+
+          <div className="flex content-between mt-8">
+            <div className="mr-10">
+              <label className="text-darkBgColor font-bold text-lg mb-3">
+                From
+              </label>
+              <div>
+                <DatePicker
+                  value={fromDate}
+                  onChange={setFromDate}
+                  renderInput={fromCustomInput}
+                  colorPrimary="#2958e5"
                 />
-                <p> With Qemistry,</p>
-              </div>
-            </b>
-          </b>
-          <div className={styles.data}>
-            <div>
-              <label>From</label>
-              <button
-                onClick={showCalendar}
-                className={styles.datePickBtn}
-                name="From"
-              >
-                {fromInfo.year}년 {fromInfo.month}월 {fromInfo.date}일
-                <img name="From" src={images.calendar} alt="calendar" />
-              </button>
-              <div>
-                {showFrom && (
-                  <DayPicker
-                    onDayClick={onFromPick}
-                    selectedDays={fromDate}
-                    className={styles.dayPicker}
-                    month={fromDate}
-                  />
-                )}
               </div>
             </div>
-            <div className={styles.toDateContainer}>
-              <label>To</label>
-              <button
-                onClick={showCalendar}
-                className={styles.datePickBtn}
-                name="To"
-              >
-                {toInfo.year}년 {toInfo.month}월 {toInfo.date}일
-                <img name="To" src={images.calendar} alt="calendar" />
-              </button>
+            <div>
+              <label className="text-darkBgColor font-bold text-lg mb-3">
+                To
+              </label>
+
               <div>
-                {showTo && (
-                  <DayPicker
-                    onDayClick={onToPick}
-                    selectedDays={toDate}
-                    className={styles.dayPicker}
-                    month={toDate}
-                  />
-                )}
+                <DatePicker
+                  value={toDate}
+                  onChange={setToDate}
+                  renderInput={toCustomInput}
+                  colorPrimary="#2958e5"
+                />
               </div>
             </div>
           </div>
-          <div className={styles.dataRes}>
+          <div className="flex justify-around mt-10">
             <div>
-              <p className={styles.resTitle}>BUY ＆ HODL</p>
-              <div className={styles.resBox}>
-                <div>
-                  <p>MDD</p>
-                  <img src={images.info} alt="info" />
+              <p className={cx(styles.shadowText, 'font-bold')}>BUY ＆ HODL</p>
+              <div className="flex">
+                <div className="mr-18">
+                  <div className="flex items-start">
+                    <p className={cx('font-light', styles.shadowText)}>MDD</p>
+                    <img src={images.info} alt="info" />
+                  </div>
+                  <p className={cx(styles.shadowText, 'font-bold')}>82%</p>
                 </div>
-                <p>82%</p>
-              </div>
-              <div className={styles.resBox}>
                 <div>
-                  <p>Return</p>
-                  <img src={images.info} alt="info" />
+                  <div className="flex items-start">
+                    <p className={cx('font-light', styles.shadowText)}>
+                      Return
+                    </p>
+                    <img src={images.info} alt="info" />
+                  </div>
+                  <p className={cx(styles.shadowText, 'font-bold')}>250%</p>
                 </div>
-                <p>250%</p>
               </div>
             </div>
-            <div className={styles.resHr}></div>
+            <div className="h-full w-px mx-6 bg-placeholderBackgroundTwo  " />
             <div>
-              <p className={styles.resTitle}>With Qemistry</p>
-              <div className={styles.resBox}>
-                <div>
-                  <p>MDD</p>
-                  <img src={images.info} alt="info" />
+              <p className={cx(styles.shadowText, 'font-bold')}>
+                With Qemistry
+              </p>
+              <div className="flex">
+                <div className="mr-18">
+                  <div className="flex items-start">
+                    <p className={cx(styles.shadowText, 'font-light')}>MDD</p>
+                    <img src={images.info} alt="info" />
+                  </div>
+                  <p className={cx(styles.shadowText, 'font-bold')}>17%</p>
                 </div>
-                <p>17%</p>
-              </div>
-              <div className={styles.resBox}>
                 <div>
-                  <p>Return</p>
-                  <img src={images.info} alt="info" />
+                  <div className="flex items-start">
+                    <p className={cx('font-light', styles.shadowText)}>
+                      Return
+                    </p>
+                    <img src={images.info} alt="info" />
+                  </div>
+                  <p className={cx(styles.shadowText, 'font-bold')}>2680%</p>
                 </div>
-                <p>2680%</p>
               </div>
             </div>
           </div>
-          <button className={styles.pricing}>Pricing</button>
+          <button className="text-white bg-mainBlack text-lg font-bold border-0 rounded-md shadow-md mt-8 mx-16 px-20 py-4 focus:outline-none hover:bg-mainBlack hover:opacity-75">
+            Pricing
+          </button>
         </div>
         <br />
       </div>

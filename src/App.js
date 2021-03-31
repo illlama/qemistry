@@ -70,7 +70,10 @@ const App = () => {
       </section>
 
       {/* Section2 */}
-      <section className={styles.secondSection} id="service">
+      <section
+        className={cx('flex justify-center items-center', styles.secondSection)}
+        id="service"
+      >
         <div
           className={cx(
             'grid grid-cols-2 flex justify-center',
@@ -80,7 +83,7 @@ const App = () => {
           <img
             src={images.chartMonitor}
             alt="chart-monitor"
-            className="w-1/3 col-span-1 hidden lg:inline-block mr-8"
+            className="w-1/3 col-span-1 hidden lg:inline-block lg:mr-8"
           />
           <div className="col-span-1 ml-8">
             <p className="text-3xl mb-12">
@@ -106,11 +109,14 @@ const App = () => {
       </section>
 
       {/* Section3 */}
-      <section className={styles.thirdSection} id="support">
+      <section
+        className={cx('flex justify-center items-center', styles.thirdSection)}
+        id="support"
+      >
         <div
-          className={cx('flex justify-evenly md:grid-cols-2', styles.container)}
+          className={cx('flex justify-center md:grid-cols-2', styles.container)}
         >
-          <div className="md:col-span-1">
+          <div className="md:col-span-1 mr-9">
             <p className="text-3xl mb-12">
               Funds on You, Trade Bots for You
               <br />
@@ -127,7 +133,7 @@ const App = () => {
               <br />- 24/7 Live Bots with the Instant Processing
             </p>
           </div>
-          <div className="mt-24 md:inline-block md:col-span-1">
+          <div className="mt-24 md:inline-block md:col-span-1 lg:ml-9">
             <div className="flex justify-center content-center">
               <img
                 src={images.binace}

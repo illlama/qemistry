@@ -20,14 +20,14 @@ const Nav = () => {
     }
   };
   return (
-    <div className="fixed inset-x-0 top-0 flex justify-between h-15 px-10 pt-3 bg-white">
+    <div className="fixed z-50 inset-x-0 top-0 flex justify-between h-15 px-4 md:px-10 pt-3 md:bg-white">
       <div>
         {isTop ? (
-          <img src={Logo} className="h-12 ml-6 mt-1" alt="logo" />
+          <img src={Logo} className="h-6 md:h-12 md:ml-6 mt-1" alt="logo" />
         ) : (
           <img
             src={SimpleLogo}
-            className={cx('ml-5 h-12 ', {
+            className={cx(' h-6 md:ml-5 md:h-12 ', {
               [styles.simpleLogo]: !isTop,
             })}
             alt="logo"
@@ -35,7 +35,7 @@ const Nav = () => {
         )}
       </div>
       <div>
-        <ul className="flex content-center h-15 mr-12 text-placeholderBackgroundTwo text-2xl ">
+        <ul className="hidden md:flex content-center h-15 mr-12 text-placeholderBackgroundTwo text-2xl ">
           <a href="#waitList">
             <li className="mx-4 transition ease-in-out hover:text-mainBlue duration-100">
               Wait List

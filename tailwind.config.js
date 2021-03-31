@@ -16,6 +16,7 @@ module.exports = {
       mainBgColor: '#f5f7ff',
       mainBlack: '#363636',
       mainGray: '#5D605D',
+      subBeige: '#DBD1B3',
       darkBgColor: '#9f9c9c',
       placeholder: '#f3f3f3',
       placeholderBackgroundTwo: '#c8c8c8',
