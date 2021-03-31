@@ -1,0 +1,9 @@
+@import 'scss/base.scss';
+
+.simpleLogo {
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  transition-duration: 2s;
+  transform-origin: top center;
+}
