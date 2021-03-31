@@ -59,7 +59,7 @@ const Graph = ({ fromGraphDate, toGraphDate, money, isBtc }) => {
     fetchEthData();
   }, [fromGraphDate, toGraphDate, money, isBtc]);
   return (
-    <div className="h-12">
+    <div>
       {btcData !== undefined && ethData !== undefined && (
         <GraphContent btcData={btcData} ethData={ethData} isBtc={isBtc} />
       )}

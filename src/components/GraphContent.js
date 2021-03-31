@@ -14,10 +14,10 @@ const GraphContent = ({ btcData, ethData, isBtc }) => {
   return (
     <div>
       <AreaChart
-        width={isMobile ? 300 : 650}
+        width={isMobile ? 350 : 650}
         height={isMobile ? 320 : 470}
         data={isBtc ? btcData : ethData}
-        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+        margin={isMobile ? '' : { top: 10, right: 30, left: 0, bottom: 0 }}
       >
         <defs>
           <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">

@@ -15,7 +15,7 @@ const App = () => {
       {/* Section1 */}
       <section id="waitList">
         <div className={cx('flex justify-between', styles.container)}>
-          <div className="flex flex-col place-content-stretch mt-36 text-3xl">
+          <div className="flex flex-col place-content-stretch mt-24 md:mt-36 text-2xl md:text-3xl">
             <p>
               Investment Made Easy
               <br />
@@ -24,16 +24,11 @@ const App = () => {
               </b>
             </p>
 
-            <p className="text-lg my-auto">
+            <p className="mt-8 md:mt-0 text-lg my-auto">
               A to Z Service sith the Quantative Analysis
             </p>
 
-            <video
-              autoPlay
-              loop
-              muted
-              className="w-3/5 lg:hidden mt-36 flex-none"
-            >
+            <video autoPlay loop muted className=" lg:hidden mt-8 flex-none">
               <source src={images.landingVideo} type="video/mp4" />
             </video>
 
@@ -41,19 +36,19 @@ const App = () => {
               <input
                 placeholder="name"
                 type="text"
-                className="bg-mainBgColor rounded-lg font-bold border-0 focus:outline-none text-mainBlue text-lg p-4 mb-2 lg:text-xl"
+                className="bg-mainBgColor rounded-lg font-bold border-0 focus:outline-none text-mainBlue text-base md:text-lg p-2 md:p-4 mt-8 md:mt-0 mb-2 lg:text-xl"
               />
               <br />
               <input
                 placeholder="Email"
                 type="email"
-                className="w-full bg-mainBgColor rounded-lg font-bold border-0 focus:outline-none text-mainBlue text-lg p-4 mb-2 lg:text-xl"
+                className="w-full bg-mainBgColor rounded-lg font-bold border-0 focus:outline-none text-mainBlue text-base md:text-lg p-2 md:p-4 mb-2 lg:text-xl"
               />
               <br />
               <input
                 type="submit"
                 value="Join Waitlist"
-                className="float-right bg-darkBgColor rounded-lg font-bold border-0 hover:opacity-75 text-white text-lg p-4 mb-2 cursor-pointer lg:text-xl"
+                className="float-right bg-darkBgColor rounded-lg font-bold border-0 hover:opacity-75 text-white text-base md:text-lg p-2 md:p-4 mb-2 cursor-pointer lg:text-xl"
               />
             </form>
           </div>
@@ -76,17 +71,17 @@ const App = () => {
       >
         <div
           className={cx(
-            'grid grid-cols-2 flex justify-center',
+            'md:grid mx-0 md:grid-cols-2 justify-center  md:flex-row',
             styles.container,
           )}
         >
           <img
             src={images.chartMonitor}
             alt="chart-monitor"
-            className="w-1/3 col-span-1 hidden lg:inline-block lg:mr-8"
+            className="w-1/3 md:col-span-1 hidden lg:inline-block lg:mr-8"
           />
-          <div className="col-span-1 ml-8">
-            <p className="text-3xl mb-12">
+          <div className="md:col-span-1 md:ml-8">
+            <p className="text-2xl md:text-3xl mb-4 md:mb-12 ">
               Full Integration with Trading View
               <br />
               <b>Intuitive Visualization</b>
@@ -94,14 +89,25 @@ const App = () => {
             <img
               src={images.chartMonitor}
               alt="chart-monitor"
-              className="lg:hidden"
+              className="md:hidden"
             />
-            <p className={styles.shadowDescription}>
+            <p
+              className={cx(
+                'text-sm mb-3 md:mb-6 md:ml-12',
+                styles.shadowDescription,
+              )}
+            >
               - Live Alerts via Telegram
-              <br />
-              <br />- 3-Year proven strategies
-              <br />
-              <br />
+            </p>
+            <p
+              className={cx(
+                'text-sm mb-3 md:mb-6 md:ml-12',
+                styles.shadowDescription,
+              )}
+            >
+              - 3-Year proven strategies
+            </p>
+            <p className={cx('text-sm md:ml-12', styles.shadowDescription)}>
               -Customized Strategies with Different Time Frames and Pairs
             </p>
           </div>
@@ -114,26 +120,41 @@ const App = () => {
         id="support"
       >
         <div
-          className={cx('flex justify-center md:grid-cols-2', styles.container)}
+          className={cx(
+            'flex justify-center flex-col md:flex-row md:grid-cols-2',
+            styles.container,
+          )}
         >
-          <div className="md:col-span-1 mr-9">
-            <p className="text-3xl mb-12">
+          <div className="md:col-span-1 md:mr-9">
+            <p className="text-2xl md:text-3xl mb-6 md:mb-12">
               Funds on You, Trade Bots for You
               <br />
               <b>Effortless Easy Come</b>
             </p>
-
-            <p className={styles.shadowDescription}>
+            <p
+              className={cx(
+                'text-sm mb-3 md:mb-6 md:ml-12',
+                styles.shadowDescription,
+              )}
+            >
               - 5+ Exchanges Supported
-              <br />
-              <br /> - We don’t have any access to your funds:
+            </p>
+            <p
+              className={cx(
+                'text-sm mb-3 md:mb-6 md:ml-12',
+                styles.shadowDescription,
+              )}
+            >
+              - We don’t have any access to your funds:
               <br />
               Order Processing Only
-              <br />
-              <br />- 24/7 Live Bots with the Instant Processing
+            </p>
+            <p className={cx('text-sm md:ml-12', styles.shadowDescription)}>
+              - 24/7 Live Bots with the Instant Processing
             </p>
           </div>
-          <div className="mt-24 md:inline-block md:col-span-1 lg:ml-9">
+          {/* 데스크탑 */}
+          <div className="mt-24 hidden md:inline-block md:col-span-1 lg:ml-9">
             <div className="flex justify-center content-center">
               <img
                 src={images.binace}
@@ -173,44 +194,33 @@ const App = () => {
               <p>More Supported Exchanges</p>
             </div>
           </div>
-          <div className="mt-24 md:hidden md:col-span-1">
-            <div className="flex justify-center content-center">
+          {/* 모바일 */}
+          <div className="mt-2 md:hidden md:col-span-1">
+            <div className="flex justify-around item-center">
               <img
                 src={images.binace}
                 alt="companies"
-                className="px-3 object-none"
+                className="object-none"
               />
               <img
                 src={images.bithumb}
                 alt="companies"
-                className="px-3 object-none"
+                className="object-none"
               />
             </div>
-            <div className="flex justify-center content-center">
-              <img
-                src={images.upbit}
-                alt="companies"
-                className="px-3 object-none"
-              />
+            <div className="flex justify-around item-center">
+              <img src={images.upbit} alt="companies" className="object-none" />
               <img
                 src={images.bitget}
                 alt="companies"
-                className="px-3 object-none"
+                className="object-none"
               />
             </div>
-            <div className="flex justify-center content-center">
-              <img
-                src={images.bybit}
-                alt="companies"
-                className="px-3 object-none"
-              />
-              <img
-                src={images.huobi}
-                alt="companies"
-                className="px-3 object-none"
-              />
+            <div className="flex justify-around item-center">
+              <img src={images.bybit} alt="companies" className="object-none" />
+              <img src={images.huobi} alt="companies" className="object-none" />
             </div>
-            <div className="flex justify-center content-center text-base">
+            <div className="flex justify-center item-center text-base">
               <img src={images.plus} alt="plus-mark" className="mr-4" />
               <p>More Supported Exchanges</p>
             </div>
@@ -224,7 +234,7 @@ const App = () => {
       {/* Section5 */}
       <section className="flex justify-center">
         <div className={cx('flex flex-col', styles.fifthContainer)}>
-          <div className="text-right text-3xl">
+          <div className="text-center md:text-right text-2xl md:text-3xl">
             <p>Optimized Strategies</p>
             <br />
             <p>

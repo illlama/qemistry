@@ -36,10 +36,10 @@ const ChartSection = () => {
     return (
       <button
         ref={ref}
-        className="flex justify-center items-center text-base font-bold text-darkBgColor bg-placeholder px-4 py-2 rounded-md hover:bg-mainBgColor"
+        className="flex justify-center items-center text-base font-bold text-darkBgColor bg-placeholder px-2 md:px-4 py-2 rounded-md hover:bg-mainBgColor"
       >
         {toDate.year}년 {toDate.month}월 {toDate.day}일
-        <img src={calendar} alt="calendar" className="pl-8" />
+        <img src={calendar} alt="calendar" className="pl-4 md:pl-8" />
       </button>
     );
   };
@@ -47,10 +47,10 @@ const ChartSection = () => {
     return (
       <button
         ref={ref}
-        className="flex justify-center items-center text-base font-bold text-darkBgColor bg-placeholder px-4 py-2 rounded-md hover:bg-mainBgColor"
+        className="flex justify-center items-center text-base font-bold text-darkBgColor bg-placeholder px-2 md:px-4 py-2 rounded-md hover:bg-mainBgColor"
       >
         {fromDate.year}년 {fromDate.month}월 {fromDate.day}일
-        <img src={calendar} alt="calendar" className="pl-8" />
+        <img src={calendar} alt="calendar" className="pl-4 md:pl-8" />
       </button>
     );
   };
@@ -71,21 +71,27 @@ const ChartSection = () => {
   }, [fromDate, toDate]);
   return (
     <section
-      className={cx('flex justify-center items-center', styles.fourthSection)}
+      className={cx(
+        'flex justify-center items-center md:px-0',
+        styles.fourthSection,
+      )}
       id="strategy"
     >
-      <div className="flex justify-between flex-col pt-16 sm:flex-row">
-        <Graph
-          fromGraphDate={fromGraphDate}
-          toGraphDate={toGraphDate}
-          money={Number(initialMoney)}
-          isBtc={btcToggle}
-          isMobile={false}
-        />
-        <div className="flex flex-col text-3xl ">
+      <div className="flex flex-col md:justify-between md:pt-16 sm:flex-row">
+        <div className="flex justify-center">
+          <Graph
+            fromGraphDate={fromGraphDate}
+            toGraphDate={toGraphDate}
+            money={Number(initialMoney)}
+            isBtc={btcToggle}
+            isMobile={false}
+          />
+        </div>
+        <br />
+        <div className="flex flex-col text-2xl mt-2 md:mt-0 md:ml-8 md:text-3xl ">
           <div className="flex items-center">
             <p>If you have traded </p>
-            <div className="ml-2">
+            <div className="md:ml-2">
               <select
                 className="underline"
                 onChange={(e) => onToggle(e.target.value)}
@@ -114,9 +120,9 @@ const ChartSection = () => {
             <p> With Qemistry,</p>
           </div>
 
-          <div className="flex content-between mt-8">
-            <div className="mr-10">
-              <label className="text-darkBgColor font-bold text-lg mb-3">
+          <div className="flex justify-center  mt-8">
+            <div className="mr-4 md:mr-10">
+              <label className="text-darkBgColor font-bold text-base md:text-lg mb-3">
                 From
               </label>
               <div>
@@ -129,7 +135,7 @@ const ChartSection = () => {
               </div>
             </div>
             <div>
-              <label className="text-darkBgColor font-bold text-lg mb-3">
+              <label className="text-darkBgColor font-bold text-base md:text-lg mb-3">
                 To
               </label>
 
@@ -143,49 +149,64 @@ const ChartSection = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-around mt-10">
+          <div className="flex justify-center md:justify-around mt-8 md:mt-10">
             <div>
-              <p className={cx(styles.shadowText, 'font-bold')}>BUY ＆ HODL</p>
+              <p className={cx(styles.shadowText, 'font-bold mb-4')}>
+                BUY ＆ HODL
+              </p>
               <div className="flex">
-                <div className="mr-18">
+                <div className="mr-4 md:mr-18">
                   <div className="flex items-start">
-                    <p className={cx('font-light', styles.shadowText)}>MDD</p>
+                    <p className={cx('font-light text-sm', styles.shadowText)}>
+                      MDD
+                    </p>
                     <img src={images.info} alt="info" />
                   </div>
-                  <p className={cx(styles.shadowText, 'font-bold')}>82%</p>
+                  <p className={cx(styles.shadowText, 'font-bold text-sm')}>
+                    82%
+                  </p>
                 </div>
                 <div>
                   <div className="flex items-start">
-                    <p className={cx('font-light', styles.shadowText)}>
+                    <p className={cx('font-light text-sm', styles.shadowText)}>
                       Return
                     </p>
                     <img src={images.info} alt="info" />
                   </div>
-                  <p className={cx(styles.shadowText, 'font-bold')}>250%</p>
+                  <p className={cx(styles.shadowText, 'text-sm font-bold')}>
+                    250%
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="h-full w-px mx-6 bg-placeholderBackgroundTwo  " />
+            {/* 경계선 */}
+            <div className="h-full w-px mx-6 md:mx-6 bg-placeholderBackgroundTwo  " />
             <div>
-              <p className={cx(styles.shadowText, 'font-bold')}>
+              <p className={cx(styles.shadowText, 'font-bold mb-4')}>
                 With Qemistry
               </p>
               <div className="flex">
-                <div className="mr-18">
+                <div className="mr-4 md:mr-18">
                   <div className="flex items-start">
-                    <p className={cx(styles.shadowText, 'font-light')}>MDD</p>
+                    <p className={cx(styles.shadowText, 'text-sm font-light ')}>
+                      MDD
+                    </p>
                     <img src={images.info} alt="info" />
                   </div>
-                  <p className={cx(styles.shadowText, 'font-bold')}>17%</p>
+                  <p className={cx(styles.shadowText, 'text-sm font-bold')}>
+                    17%
+                  </p>
                 </div>
                 <div>
                   <div className="flex items-start">
-                    <p className={cx('font-light', styles.shadowText)}>
+                    <p className={cx('text-sm font-light', styles.shadowText)}>
                       Return
                     </p>
                     <img src={images.info} alt="info" />
                   </div>
-                  <p className={cx(styles.shadowText, 'font-bold')}>2680%</p>
+                  <p className={cx(styles.shadowText, 'text-sm font-bold')}>
+                    2680%
+                  </p>
                 </div>
               </div>
             </div>
@@ -194,7 +215,6 @@ const ChartSection = () => {
             Pricing
           </button>
         </div>
-        <br />
       </div>
     </section>
   );

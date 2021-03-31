@@ -27,7 +27,7 @@ const Nav = () => {
         ) : (
           <img
             src={SimpleLogo}
-            className={cx(' h-6 md:ml-5 md:h-12 ', {
+            className={cx(' h-6 md:ml-5 md:h-12 z-50', {
               [styles.simpleLogo]: !isTop,
             })}
             alt="logo"

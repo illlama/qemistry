@@ -6,13 +6,13 @@ import Youtube from 'assets/Youtube.png';
 
 const Footer = () => {
   return (
-    <div className="flex flex-wrap grid grid-cols-3 content-center h-48 w-full bg-mainGray">
-      <div className="col-span-1"></div>
-      <p className="col-span-1 mt-2 space-y-0 text-white text-center font-light text-sm tracking-wider">
+    <div className="grid flex-wrap  md:grid-cols-3 content-center h-48 w-full bg-mainGray">
+      <div className="md:col-span-1"></div>
+      <p className="md:col-span-1 mt-2 space-y-0 text-white text-center font-light text-sm tracking-wider">
         &copy; Copyright {new Date().getFullYear()} Qemistry. All rights
         reserved.
       </p>
-      <div className="col-span-1 justify-center flex space-x-4">
+      <div className="md:col-span-1 justify-center flex space-x-4">
         <a
           href="https://www.medium.com"
           className="hover:bg-mainBlack rounded-lg p-1"
