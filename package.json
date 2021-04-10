@@ -20,6 +20,7 @@
   "scripts": {
     "build:tailwind": "tailwind build src/css/index.css -o src/css/tailwind.css",
     "start": "npm run build:tailwind && react-scripts start",
+    "demo": "PORT=8080 npm run build:tailwind && react-scripts start",
     "build": "tailwind build src/css/index.css -o src/css/tailwind.css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
